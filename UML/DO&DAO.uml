@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.syhbb.bigdata.dataObject.CommentDO</OriginalElement>
+  <nodes>
+    <node x="661.3881907485957" y="492.8314321926489">com.syhbb.bigdata.dao.CommentDAO</node>
+    <node x="536.8769581802663" y="74.0">com.syhbb.bigdata.dataObject.CommentDO</node>
+    <node x="57.72133421008323" y="492.8314321926489">com.syhbb.bigdata.dao.StateDAO</node>
+    <node x="359.5547624793395" y="492.8314321926489">com.syhbb.bigdata.dao.AuthorDAO</node>
+    <node x="-248.0" y="492.8314321926489">com.syhbb.bigdata.dao.VideoDAO</node>
+    <node x="314.793992398118" y="74.0">com.syhbb.bigdata.dataObject.AuthorDO</node>
+    <node x="-240.0" y="74.0">com.syhbb.bigdata.dataObject.VideoDO</node>
+    <node x="100.71102661596962" y="74.0">com.syhbb.bigdata.dataObject.StateDO</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="0.9142561879624188" showDependencies="false" x="309.2090471265966" y="403.1548072480795" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

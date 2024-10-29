@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.syhbb.bigdata.spiderData.DO.video.RightData</OriginalElement>
+  <nodes>
+    <node x="-1395.7485131690744" y="764.4010195412067">com.syhbb.bigdata.spiderData.DO.video.RecommendReason</node>
+    <node x="-1138.3942225998296" y="243.00849617672048">com.syhbb.bigdata.spiderData.DO.video.RightData</node>
+    <node x="-1395.7485131690744" y="243.00849617672043">com.syhbb.bigdata.spiderData.DO.video.OwnerData</node>
+    <node x="-1394.2485131690744" y="49.87680543755312">com.syhbb.bigdata.spiderData.DO.comment.MemberDO</node>
+    <node x="-2233.0628717077316" y="193.0314358538659">com.syhbb.bigdata.spiderData.ResponseData</node>
+    <node x="-1987.1380628717077" y="58.79269328802036">com.syhbb.bigdata.spiderData.DO.comment.CommentResponseData</node>
+    <node x="-1709.979821580289" y="251.46304163126615">com.syhbb.bigdata.spiderData.DO.video.VideoData</node>
+    <node x="-1682.7259983007646" y="-65.85896346644012">com.syhbb.bigdata.spiderData.DO.comment.CommentData</node>
+    <node x="-1987.1380628717077" y="306.0314358538659">com.syhbb.bigdata.spiderData.DO.video.VideoResponseData</node>
+    <node x="-1406.7485131690744" y="-74.25998300764658">com.syhbb.bigdata.spiderData.DO.comment.ContentData</node>
+    <node x="-1384.7485131690744" y="404.79864061172475">com.syhbb.bigdata.spiderData.DO.video.StatData</node>
+    <node x="-1116.5172047578599" y="704.8870008496177">com.syhbb.bigdata.spiderData.DO.video.DimensionData</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="1.1805416248746239" showDependencies="false" x="-1559.7438402718776" y="408.42948173322003" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

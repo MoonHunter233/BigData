@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>console</title>
+    <link rel="stylesheet" href="./css/console1.css">
+</head>
+<body>
+<h1>服务控制台</h1>
+
+<table class="serviceTable">
+    <tr>
+        <th>服务</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>热门视频更新</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button videosUpdate" data-service="热门视频更新">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>评论更新</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button commentsUpdate" data-service="评论更新">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>评论词云</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button wordCloud" data-service="评论词云">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>热门视频IP分布（饼状图）</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button pieChart" data-service="热门视频IP分布（饼状图）">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>热门视频IP分布（柱状图）</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button barChart" data-service="热门视频IP分布（柱状图）">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td class="serviceName">
+            <span>清除</span>
+        </td>
+        <td class="buttonCell">
+            <button class="start-button clear" data-service="service5">
+                <span class="start-icon"></span>
+            </button>
+        </td>
+    </tr>
+</table>
+
+
+<h2>日志</h2>
+<div id="log-area"></div>
+
+<script src="./js/console.js"></script>
+</body>
+</html>

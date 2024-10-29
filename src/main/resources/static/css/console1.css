@@ -1,0 +1,103 @@
+body {
+    background: url("./image/wallparper.png") no-repeat center / cover;
+}
+
+.serviceTable, td {
+    border: 1px solid black;
+}
+
+td {
+    height: 25px;
+}
+
+.serviceName {
+    width: 400px;
+}
+
+.serviceTable tr:nth-child(odd) {
+    background-image: linear-gradient(to right, #2123c1, #c010bd);
+    color: #fff;
+}
+
+.serviceTable tr:nth-child(even) {
+    background-image: linear-gradient(to right, #32d9ba, #00a6ff);
+    color: #fff;
+}
+
+.serviceTable tr:first-child {
+    background-image: linear-gradient(to right, #ffcc00, #ff9900);
+    color: #fff;
+}
+
+.buttonCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    position: relative;
+}
+
+.start-button:hover {
+    &:before {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 7px solid #06f806;
+        vertical-align: middle;
+        margin-right: 5px;
+        transition: border-left 0.2s ease;
+    }
+}
+
+.start-button:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid #000;
+    vertical-align: middle;
+    margin-right: 5px;
+    transition: border-left 0.2s ease;
+}
+
+.start-button.loading {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.start-button.loading:before {
+    border-left: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-right: 0;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#log-area {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(51, 51, 51, 0.5);
+    color: #fff;
+    overflow: scroll;
+}
