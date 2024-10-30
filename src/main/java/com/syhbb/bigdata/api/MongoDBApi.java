@@ -2,6 +2,7 @@ package com.syhbb.bigdata.api;
 
 import com.kennycason.kumo.WordFrequency;
 import com.syhbb.bigdata.dao.VideoDAO;
+import com.syhbb.bigdata.dataObject.VideoDO;
 import com.syhbb.bigdata.service.DBService;
 import com.syhbb.bigdata.service.MongoVideoService;
 import com.syhbb.bigdata.service.SpiderService;
@@ -13,6 +14,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -163,5 +165,25 @@ public class MongoDBApi {
             throw new RuntimeException(e);
         }
         return imageBytes;
+    }
+
+    @GetMapping("/todayVideo")
+    @ResponseBody
+    public List<VideoDO> todayVideo() {
+        return videoDAO.getDObyToday();
+    }
+
+    @GetMapping("/allVideo")
+    @ResponseBody
+    public List<VideoDO> allVideo() {
+        LOG.info("get all video");
+        return videoDAO.findAll();
+    }
+
+    @GetMapping("/getVideo")
+    @ResponseBody
+    public List<VideoDO> getVideo(@Param("pageNum") int pageNum) {
+        LOG.info("get video");
+        return videoDAO.getDObyPage(pageNum);
     }
 }

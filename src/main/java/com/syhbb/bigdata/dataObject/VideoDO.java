@@ -15,6 +15,7 @@ public class VideoDO implements Serializable {
     private String themeName;
     private String coverURL;
     private String title;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime publishTime;
     private String description;
     private int duration;
@@ -23,7 +24,7 @@ public class VideoDO implements Serializable {
     private String shortLink;
     private String publishLocation;
     private String RecommendReason;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     public long getAvid() {
@@ -122,6 +123,13 @@ public class VideoDO implements Serializable {
         RecommendReason = recommendReason;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
     public VideoDO(VideoData videoDate) {
         avid = videoDate.getAid();

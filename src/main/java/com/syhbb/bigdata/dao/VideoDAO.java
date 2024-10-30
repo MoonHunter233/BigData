@@ -3,6 +3,8 @@ package com.syhbb.bigdata.dao;
 import com.syhbb.bigdata.dataObject.VideoDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -20,6 +22,9 @@ public class VideoDAO {
 
     @Value("${bilibili.collection.videos}")
     private String collection;
+
+    @Value("${bilibili.collection.pageSize}")
+    private int pageSize;
 
     public List<VideoDO> findAll(){
         return mongoTemplate.findAll(VideoDO.class,collection);
@@ -49,4 +54,12 @@ public class VideoDAO {
         List<VideoDO> list = mongoTemplate.find(query, VideoDO.class, collection);
         return list;
     }
+
+    public List<VideoDO> getDObyPage(int page){
+        Pageable pageable = PageRequest.of(page, this.pageSize);
+        Query query = new Query().with(pageable);
+        return mongoTemplate.find(query, VideoDO.class, collection);
+    }
+
+
 }
