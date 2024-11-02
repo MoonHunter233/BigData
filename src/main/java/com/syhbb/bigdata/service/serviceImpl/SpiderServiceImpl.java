@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 
 @Service
@@ -83,6 +84,13 @@ public class SpiderServiceImpl implements SpiderService {
                     });
 
         });
+        try {
+            CompletableFuture.allOf(result.toArray(new CompletableFuture[] {})).get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 
@@ -108,8 +116,16 @@ public class SpiderServiceImpl implements SpiderService {
                         mongoAuthorService.putIntoMongo((AuthorDO) m.get("AuthorDO"));
                     });
         });
+        try {
+            CompletableFuture.allOf(result.toArray(new CompletableFuture[] {})).get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
+
     @Override
     public String getDataSourceSize(int pageNumber, int pageSize) {
         StringBuffer sb = new StringBuffer();

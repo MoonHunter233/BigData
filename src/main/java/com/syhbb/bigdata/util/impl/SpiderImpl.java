@@ -39,8 +39,12 @@ public class SpiderImpl implements Spider {
         String jsonString = null;
         try {
             Response response = this.okHttpClient.newCall(request).execute();
-            jsonString = response.body().string();
-            LOG.info("请求成功");
+            if (response.isSuccessful()) {
+                jsonString = response.body().string();
+                LOG.info("请求成功");
+            } else {
+                LOG.error("请求异常");
+            }
         } catch (IOException e) {
             LOG.error("请求异常");
             LOG.error(e.getMessage());
@@ -53,20 +57,20 @@ public class SpiderImpl implements Spider {
 
     private List<VideoData> parseVideoDate(String jsonString){
         ResponseData<VideoResponseData> responseData = new ResponseData<>();
-        List<VideoData> videoDataList;
+        List<VideoData> videoDataList = new ArrayList<VideoData>();
         try {
             responseData = JSON.parseObject(jsonString, new TypeReference<ResponseData<VideoResponseData>>() {
-                @Override
-                public ResponseData<VideoResponseData> parseObject(String text) {
-                    return super.parseObject(text);
-                }
+//                @Override
+//                public ResponseData<VideoResponseData> parseObject(String text) {
+//                    return super.parseObject(text);
+//                }
             });
+            videoDataList = responseData.getData().getList();
             LOG.info("JSON反序列化成功成功");
         } catch (Exception e) {
             LOG.warn("JSON反序列化异常");
             LOG.warn(e.getMessage());
         }
-        videoDataList = responseData.getData().getList();
         return videoDataList;
     }
 
@@ -97,6 +101,7 @@ public class SpiderImpl implements Spider {
     public List<VideoData> popularSpider(int pageNumber,int pageSize){
         Request request = new Request.Builder()
                 .url(popularURL + "?pn=" + pageNumber + "&ps=" + pageSize)
+                .addHeader("user-agent", "Mozilla/5.0")
                 .build();
         return parseVideoDate(doSpider(request));
     }

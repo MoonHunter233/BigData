@@ -73,7 +73,7 @@ public class MongoDBApi {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         int pageSize = 50;
         for (int i = 1; i < 11; i++) {
-            var pageNumber = i;
+            int pageNumber = i;
             Runnable runnable = () -> spiderService.setPopularInMongo(pageNumber, pageSize);
             executorService.execute(runnable);
         }

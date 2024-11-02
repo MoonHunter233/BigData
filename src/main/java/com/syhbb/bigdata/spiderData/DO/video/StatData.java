@@ -2,7 +2,7 @@ package com.syhbb.bigdata.spiderData.DO.video;
 
 public class StatData {
 
-    private int aid;
+    private long aid;
     private int view;       //观看次数
     private int danmaku;    //弹幕数
     private int replay;     //评论数
@@ -14,11 +14,11 @@ public class StatData {
     private int like;       //点赞数
     private int dislike;
 
-    public int getAid() {
+    public long getAid() {
         return aid;
     }
 
-    public void setAid(int aid) {
+    public void setAid(long aid) {
         this.aid = aid;
     }
 

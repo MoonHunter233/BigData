@@ -16,7 +16,7 @@ public class VideoData extends RightData {
     private OwnerData owner;
     private StatData stat;
     private String dynamic;     //动态引用视频内容
-    private int cid;            //1p的cid
+    private long cid;            //1p的cid
     private DimensionData dimension;
     private String short_link_v2;   //链接
     private String first_frame;     //1p视频第一帧
@@ -143,11 +143,11 @@ public class VideoData extends RightData {
         this.dynamic = dynamic;
     }
 
-    public int getCid() {
+    public long getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(long cid) {
         this.cid = cid;
     }
 

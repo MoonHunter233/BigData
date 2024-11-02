@@ -9,6 +9,7 @@ import java.util.List;
 public class ResponseData<T> {
     private int code;
     private String message;
+    private int ttl;
     private T data;
 
     public int getCode() {
@@ -27,6 +28,13 @@ public class ResponseData<T> {
         this.message = message;
     }
 
+    public int getTtl() {
+        return ttl;
+    }
+
+    public void setTtl(int ttl) {
+        this.ttl = ttl;
+    }
 
     public T getData() {
         return data;
