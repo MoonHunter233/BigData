@@ -8,6 +8,7 @@ import com.kennycason.kumo.bg.PixelBoundaryBackground;
 import com.kennycason.kumo.font.scale.SqrtFontScalar;
 import com.kennycason.kumo.palette.ColorPalette;
 import com.syhbb.bigdata.service.ChartService;
+import org.apache.parquet.Log;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
@@ -52,7 +53,7 @@ public class ChartServiceImpl implements ChartService {
         wordCloud.setColorPalette(new ColorPalette(new Color(0xD5CFFA), new Color(0xBBB1FA), new Color(0x9A8CF5), new Color(0x806EF5)));
         wordCloud.setFontScalar(new SqrtFontScalar(12, 45));
         wordCloud.build(frequencies);
-        File file = new File("src/main/resources/WordCloud/comment_word_cloud_" + Instant.now().toEpochMilli() + ".png");
+        File file = new File(System.getProperty("user.dir") + "/resources/WordCloud/comment_word_cloud_" + Instant.now().toEpochMilli() + ".png");
         try {
             wordCloud.writeToFile(file.getPath());
         } catch (Exception e) {
@@ -65,9 +66,13 @@ public class ChartServiceImpl implements ChartService {
 
     @Override
     public File creatPieChart(DefaultPieDataset pieDataset) {
-        JFreeChart pieChart =
-                ChartFactory.createPieChart("video published location", pieDataset, true, true, false);
-        File file = new File("src/main/resources/PieChart/location_pie_chart" + Instant.now().toEpochMilli() + ".png");
+        JFreeChart pieChart = ChartFactory
+                .createPieChart(
+                        "video published location",
+                        pieDataset,
+                        true, true, false
+                );
+        File file = new File(System.getProperty("user.dir") + "/resources/PieChart/location_pie_chart" + Instant.now().toEpochMilli() + ".png");
         try {
             ChartUtils.saveChartAsPNG(file, pieChart, 3000, 1500);
         } catch (IOException e) {
@@ -80,15 +85,15 @@ public class ChartServiceImpl implements ChartService {
 
     @Override
     public File creatBarChart(DefaultCategoryDataset categoryDataset) {
-        JFreeChart barChart =
-                ChartFactory.createBarChart("video published location",
+        JFreeChart barChart = ChartFactory
+                .createBarChart("video published location",
                         "location",
                         "count",
                         categoryDataset,
                         PlotOrientation.VERTICAL,
                         true, true, false
                 );
-        File file = new File("src/main/resources/BarChart/location_Bar_chart" + Instant.now().toEpochMilli() + ".png");
+        File file = new File(System.getProperty("user.dir") + "/resources/BarChart/location_Bar_chart" + Instant.now().toEpochMilli() + ".png");
         try {
             ChartUtils.saveChartAsPNG(file, barChart, 3000, 1500);
         } catch (IOException e) {
