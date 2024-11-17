@@ -184,6 +184,13 @@ public class MongoDBApi {
     @ResponseBody
     public List<VideoDO> getVideo(@Param("pageNum") int pageNum) {
         LOG.info("get video");
-        return videoDAO.getDObyPage(pageNum);
+        return videoDAO.getDOByPage(pageNum);
+    }
+
+    @GetMapping("/searchVideo")
+    @ResponseBody
+    public List<VideoDO> searchVideo(@Param("keyword") String keyword, @Param("pageNum") int pageNum) {
+        LOG.info("search video");
+        return videoDAO.searchDOByTitle(keyword, pageNum);
     }
 }

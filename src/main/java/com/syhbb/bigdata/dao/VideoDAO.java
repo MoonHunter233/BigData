@@ -51,15 +51,19 @@ public class VideoDAO {
 
     public List<VideoDO> getDObyToday(){
         Query query = new Query(Criteria.where("date").is(LocalDate.now()));
-        List<VideoDO> list = mongoTemplate.find(query, VideoDO.class, collection);
-        return list;
+        return mongoTemplate.find(query, VideoDO.class, collection);
     }
 
-    public List<VideoDO> getDObyPage(int page){
+    public List<VideoDO> getDOByPage(int page){
         Pageable pageable = PageRequest.of(page, this.pageSize);
         Query query = new Query().with(pageable);
         return mongoTemplate.find(query, VideoDO.class, collection);
     }
 
+    public List<VideoDO> searchDOByTitle(String keyword, int page) {
+        Pageable pageable = PageRequest.of(page, this.pageSize);
+        Query query = new Query(Criteria.where("title").regex(".*" + keyword + ".*", "i")).with(pageable);
+        return mongoTemplate.find(query, VideoDO.class, collection);
+    }
 
 }
